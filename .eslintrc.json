@@ -1,0 +1,43 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:playwright/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "playwright"
+    ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "playwright/missing-playwright-await": "error",
+        "playwright/no-page-pause": "warn",
+        "playwright/no-element-handle": "warn",
+        "playwright/no-eval": "warn",
+        "playwright/no-focused-test": "error",
+        "playwright/no-skipped-test": "warn",
+        "playwright/no-wait-for-timeout": "warn",
+        "playwright/no-force-option": "warn",
+        "playwright/max-nested-describe": [
+            "warn",
+            {
+                "max": 2
+            }
+        ],
+        "playwright/no-conditional-in-test": "warn",
+        "playwright/no-useless-await": "error",
+        "playwright/prefer-web-first-assertions": "error",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ]
+    },
+    "root": true
+}
