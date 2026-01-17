@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures/customFixtures';
+import { test, expect } from '../fixtures/customFixtures';
 
 /**
  * Example test showing how to use custom fixtures
