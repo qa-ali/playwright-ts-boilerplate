@@ -19,7 +19,11 @@ export default defineConfig({
          * Maximum time expect() should wait for the condition to be met.
          * For example in `await expect(locator).toHaveText();`
          */
-        timeout: 10_000
+        timeout: 10_000,
+        /**
+         * Expect assertions are strict by default.
+         * https://playwright.dev/docs/locators#strictness
+         */
     },
     /* Run tests in files in parallel */
     fullyParallel: true,
@@ -39,7 +43,7 @@ export default defineConfig({
         actionTimeout: 10_000,
         navigationTimeout: 30_000,
         /* Base URL to use in actions like `await page.goto('/')`. */
-        baseURL: process.env.BASE_URL || 'https://www.playwright.dev',
+        baseURL: process.env.BASE_URL || 'http://localhost:3000',
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on-first-retry',
@@ -62,6 +66,7 @@ export default defineConfig({
             use: {
                 ...devices['Desktop Chrome'],
             },
+            testIgnore: /.*\.auth\.spec\.ts/,
         },
 
         // {
@@ -86,6 +91,7 @@ export default defineConfig({
                 storageState: '.auth/user.json',
             },
             dependencies: ['setup'],
+            testMatch: /.*\.auth\.spec\.ts/,
         },
     ],
 });
